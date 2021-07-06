@@ -1,0 +1,2 @@
+class GameStudio < ApplicationRecord
+end
