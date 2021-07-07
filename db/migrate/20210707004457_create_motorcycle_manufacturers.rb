@@ -5,8 +5,6 @@ class CreateMotorcycleManufacturers < ActiveRecord::Migration[5.2]
       t.string :headquarters
       t.boolean :usa_made
       t.integer :total_models_all_time
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end

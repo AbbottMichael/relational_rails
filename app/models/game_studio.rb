@@ -1,2 +1,0 @@
-class GameStudio < ApplicationRecord
-end

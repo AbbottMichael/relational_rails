@@ -4,10 +4,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :game_name
       t.float :game_cost
       t.string :genre
-      t.boolean :multi_platform
-      t.datetime :created_at
-      t.datetime :updated_at
-      t.integer :studio_id
+      t.boolean :multiplatform
 
       t.timestamps
     end
