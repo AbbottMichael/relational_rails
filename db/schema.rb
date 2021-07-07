@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_031111) do
+ActiveRecord::Schema.define(version: 2021_07_07_004736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 2021_07_06_031111) do
     t.string "game_name"
     t.float "game_cost"
     t.string "genre"
-    t.boolean "multi_platform"
+    t.boolean "multiplatform"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "studio_id"
+    t.bigint "game_studios_id"
+    t.index ["game_studios_id"], name: "index_games_on_game_studios_id"
   end
 
   create_table "motorcycle_manufacturers", force: :cascade do |t|
@@ -43,12 +44,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_031111) do
   end
 
   create_table "motorcycles", force: :cascade do |t|
-    t.integer "motorcycle_manufacturer_id"
     t.string "model"
     t.float "price"
     t.boolean "electric"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "motorcycle_manufacturers_id"
+    t.index ["motorcycle_manufacturers_id"], name: "index_motorcycles_on_motorcycle_manufacturers_id"
   end
 
+  add_foreign_key "games", "game_studios", column: "game_studios_id"
+  add_foreign_key "motorcycles", "motorcycle_manufacturers", column: "motorcycle_manufacturers_id"
 end
