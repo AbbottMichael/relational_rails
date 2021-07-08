@@ -1,0 +1,10 @@
+<h1>Motorcycles</h2>
+
+  <% @motorcycles.each do |motorcycle| %>
+    <h3><%= motorcycle.model %></h3>
+    <p>Price: <%= motorcycle.price %></p>
+    <p>Electric?: <%= motorcycle.electric %></p>
+    <p>Created at: <%= motorcycle.created_at %></p>
+    <p>Updated at: <%= motorcycle.updated_at %></p>
+    <p>Motorcycle manufacturer id: <%= motorcycle.motorcycle_manufacturer_id %></p>
+  <% end %>
