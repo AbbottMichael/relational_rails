@@ -25,6 +25,24 @@ RSpec.describe 'view motorcycles page' do
     expect(page).to have_content("Created at: #{fat_bob.created_at}")
     expect(page).to have_content("Updated at: #{fat_bob.updated_at}")
     expect(page).to have_content("Motorcycle manufacturer id: #{fat_bob.motorcycle_manufacturer_id}")
+  end
 
+  it 'displays all motorcycles and their attributes(user story 4)' do
+    #   As a visitor
+    #   When I visit '/motorcycles/:id'
+    #   Then I see the motorcycle with that id including the motorcycles's attributes:
+    zero = MotorcycleManufacturer.create!(name: 'Zero', headquarters: 'Santa Cruz, California', usa_made: true, total_models_all_time: 29)
+    srs = Motorcycle.create!(model: 'SR/S', price: 19_995.0, electric: true, motorcycle_manufacturer_id: zero.id)
+
+    visit "/motorcycles/#{srs.id}"
+
+    save_and_open_page
+
+    expect(page).to have_content(srs.model)
+    expect(page).to have_content("Price: #{srs.price}")
+    expect(page).to have_content("Electric?: #{srs.electric}")
+    expect(page).to have_content("Created at: #{srs.created_at}")
+    expect(page).to have_content("Updated at: #{srs.updated_at}")
+    expect(page).to have_content("Motorcycle manufacturer id: #{srs.motorcycle_manufacturer_id}")
   end
 end
