@@ -1,0 +1,11 @@
+<h1>Games</h1>
+
+<% @games.each do |game| %>
+	<p>Game: <%= game.game_name %></p>
+    <p>Game cost: <%= game.game_cost %></p>
+    <p>Game genre: <%= game.genre %></p>
+    <p>Multiplatform?: <%= game.multiplatform %></p>
+    <p>Created at: <%= game.created_at %></p>
+    <p>Updated at: <%= game.updated_at %></p>
+    <p>Game studio id: <%= game.game_studio_id %></p>
+<% end %>
