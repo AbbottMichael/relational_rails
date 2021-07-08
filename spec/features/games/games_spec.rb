@@ -37,4 +37,38 @@ RSpec.describe 'view games page' do
     expect(page).to have_content(super_mario.game_studio_id)
     expect(page).to have_content(spyro.game_name)
   end
+
+  it 'goes to game page id and is able to view a game' do
+    nintendo = GameStudio.create!(
+      studio_name: 'Nintendo',
+      employee_count: 6_547,
+      hiring: true)
+    sony = GameStudio.create!(
+      studio_name: 'Sony',
+      employee_count: 5_000,
+      hiring: false)
+    super_mario = Game.create!(
+      game_name: 'Super Mario World',
+      game_cost: 57.99,
+      genre: 'platformer',
+      multiplatform: false,
+      game_studio_id: nintendo.id)
+    spyro = Game.create!(
+      game_name: 'Spyro the Dragon',
+      game_cost: 49.99,
+      genre: 'platformer',
+      multiplatform: false,
+      game_studio_id: sony.id)
+    
+    visit "/games/#{super_mario.id}"
+    save_and_open_page
+    expect(page).to have_content(super_mario.game_name)
+    expect(page).to have_content("Game cost: #{super_mario.game_cost}")
+    expect(page).to have_content(super_mario.genre)
+    expect(page).to have_content(super_mario.multiplatform)
+    expect(page).to have_content(super_mario.created_at)
+    expect(page).to have_content(super_mario.updated_at)
+    expect(page).to have_content(super_mario.game_studio_id)
+    expect(page).to_not have_content(spyro.game_name)
+  end
 end
