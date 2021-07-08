@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2021_07_07_004736) do
     t.boolean "multiplatform"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "game_studios_id"
-    t.index ["game_studios_id"], name: "index_games_on_game_studios_id"
+    t.bigint "game_studio_id"
+    t.index ["game_studio_id"], name: "index_games_on_game_studio_id"
   end
 
   create_table "motorcycle_manufacturers", force: :cascade do |t|
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2021_07_07_004736) do
     t.boolean "electric"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "motorcycle_manufacturers_id"
-    t.index ["motorcycle_manufacturers_id"], name: "index_motorcycles_on_motorcycle_manufacturers_id"
+    t.bigint "motorcycle_manufacturer_id"
+    t.index ["motorcycle_manufacturer_id"], name: "index_motorcycles_on_motorcycle_manufacturer_id"
   end
 
-  add_foreign_key "games", "game_studios", column: "game_studios_id"
-  add_foreign_key "motorcycles", "motorcycle_manufacturers", column: "motorcycle_manufacturers_id"
+  add_foreign_key "games", "game_studios"
+  add_foreign_key "motorcycles", "motorcycle_manufacturers"
 end
