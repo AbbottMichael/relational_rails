@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
 
-  get '/motorcycle_manufacturers',     to: 'motorcycle_manufacturers#index'
-  get '/motorcycle_manufacturers/:id', to: 'motorcycle_manufacturers#show'
+  get '/motorcycle_manufacturers',                 to: 'motorcycle_manufacturers#index'
+  get '/motorcycle_manufacturers/:id',             to: 'motorcycle_manufacturers#show'
+
+  get '/motorcycle_manufacturers/:id/motorcycles', to: 'motorcycle_manufacturer_motorcycles#index'
 
   get '/motorcycles',     to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'
