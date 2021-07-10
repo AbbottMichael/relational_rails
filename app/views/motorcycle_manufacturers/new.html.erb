@@ -1,0 +1,15 @@
+<%= form_with url: '/motorcycle_manufacturers', method: :post, local: true do |form| %>
+  <%= form.label :name  %>
+  <%= form.text_field :name  %>
+
+  <%= form.label :headquarters  %>
+  <%= form.text_field :headquarters  %>
+
+  <%= form.label :usa_made  %>
+  <%= form.text_field :usa_made  %>
+  
+  <%= form.label :total_models_all_time  %>
+  <%= form.text_field :total_models_all_time  %>
+
+  <%= form.submit "Create Motorcycle Manufacturer" %>
+<% end %>

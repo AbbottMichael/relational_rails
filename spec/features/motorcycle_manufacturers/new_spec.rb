@@ -1,3 +1,4 @@
+# user story 11
 # As a visitor
 # When I visit the Parent Index page
 # Then I see a link to create a new Parent record, "New Parent"
@@ -19,7 +20,7 @@ RSpec.describe 'Motorcycle Manufacturer creation' do
     expect(current_path).to eq('/motorcycle_manufacturers/new')
   end
 
-  it 'can creat a new motorcycle manufacturer' do
+  it 'can create a new motorcycle manufacturer' do
     visit '/motorcycle_manufacturers/new'
     fill_in('Name', with: 'Triumph')
     fill_in('Headquarters', with: 'England')
