@@ -44,5 +44,7 @@ RSpec.describe 'view motorcycle manufacturers page' do
     expect(page).to have_content(@zero.created_at)
     expect(page).to have_content(@harley_davidson.created_at)
     expect(page).to have_content(@triumph.created_at)
+    expect("Zero").to appear_before("Harley Davidson")
+    expect("Harley Davidson").to appear_before("Triumph")
   end
 end
