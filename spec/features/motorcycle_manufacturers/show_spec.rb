@@ -29,4 +29,13 @@ RSpec.describe 'view motorcycle manufacturer by ID page' do
 
     expect(page).to have_content("Motorcycles: #{@zero.motorcycles.count}")
   end
+
+  it "has a link to motorcycle manufacturer's motorcycles (user story 10)" do
+    # As a visitor
+    # When I visit a motorcycle_manufacturer show page ('/motorcycle_manufacturers/:id')
+    # Then I see a link to take me to that motorcycle_manufacturer's `motorcycles` page ('/motorcycle_manufacturers/:id/motorcycles')
+    visit "/motorcycle_manufacturers/#{@zero.id}"
+    save_and_open_page
+    expect(page).to have_link('Motorcycles list', href: "/motorcycle_manufacturers/#{@zero.id}/motorcycles")
+  end
 end
