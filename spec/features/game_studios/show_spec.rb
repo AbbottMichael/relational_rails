@@ -7,10 +7,10 @@ RSpec.describe 'view game studios show page' do
   end
 
   it 'goes to pages with game studio ids(user story 2)' do
-#     As a visitor
-#     When I visit '/game_studios/:id'
-#     Then I see the game studio with that id including the game studio's attributes:
-#     - data from each column that is on the game_studios table
+    # As a visitor
+    # When I visit '/game_studios/:id'
+    # Then I see the game studio with that id including the game studio's attributes:
+    # - data from each column that is on the game_studios table
     visit "/game_studios/#{@nintendo.id}"
 
     expect(page).to have_content(@nintendo.studio_name)
@@ -19,5 +19,14 @@ RSpec.describe 'view game studios show page' do
     expect(page).to have_content(@nintendo.created_at)
     expect(page).to have_content(@nintendo.updated_at)
     expect(page).to_not have_content(@sony.studio_name)
+  end
+
+  it 'shows how many games belong to the game studio (user story 7)' do
+    # As a visitor
+    # When I visit a game studio's show page
+    # I see a count of the number of games associated with this game studio
+    visit "/game_studios/#{@nintendo.id}"
+
+    expect(page).to have_content("Games: #{@nintendo.games.count}")
   end
 end
