@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   get '/game_studios',     to: 'game_studios#index'
-  get '/game_studios/:id', to: "game_studios#show"
+  get '/game_studios/:id', to: 'game_studios#show'
+
+  get '/game_studios/:id/games', to: 'game_studio_games#index'
 
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
