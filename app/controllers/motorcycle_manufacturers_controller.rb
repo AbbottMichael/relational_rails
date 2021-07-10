@@ -11,10 +11,10 @@ class MotorcycleManufacturersController < ApplicationController
   end
 
   def create
-    moto_mft = MotorcycleManufacturer.create(
+    MotorcycleManufacturer.create(
       name:                  params[:name],
       headquarters:          params[:headquarters],
-      usa_made:              params[:headquarters],
+      usa_made:              params[:usa_made],
       total_models_all_time: params[:total_models_all_time]
     )
     redirect_to "/motorcycle_manufacturers"

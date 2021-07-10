@@ -24,11 +24,10 @@ RSpec.describe 'Motorcycle Manufacturer creation' do
     visit '/motorcycle_manufacturers/new'
     fill_in('Name', with: 'Triumph')
     fill_in('Headquarters', with: 'England')
-    fill_in('usa_made', with: 'false')
+    choose('True') # usa_made? radio button
     fill_in('total_models_all_time', with: '872')
 
     click_button('Create Motorcycle Manufacturer')
-    save_and_open_page
 
     expect(current_path).to eq("/motorcycle_manufacturers")
     expect(page).to have_content('Triumph')
