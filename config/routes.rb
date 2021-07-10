@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/games/:id', to: 'games#show'
 
   get '/motorcycle_manufacturers',                 to: 'motorcycle_manufacturers#index'
+  get '/motorcycle_manufacturers/new',             to: 'motorcycle_manufacturers#new'
   get '/motorcycle_manufacturers/:id',             to: 'motorcycle_manufacturers#show'
+  post '/motorcycle_manufacturers',                to: 'motorcycle_manufacturers#create'
 
   get '/motorcycle_manufacturers/:id/motorcycles', to: 'motorcycle_manufacturer_motorcycles#index'
 

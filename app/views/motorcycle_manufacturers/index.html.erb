@@ -1,5 +1,7 @@
 <h1>Motorcycle Manufacturers</h1>
 
+<%= link_to "New Motorcycle Manufacturer", "/motorcycle_manufacturers/new" %>
+
 <% @motorcycle_manufacturers.each do |moto_mft| %>
 	<p><%= moto_mft.name %>: <%= moto_mft.created_at %></p>
 <% end %>
