@@ -8,10 +8,10 @@ RSpec.describe 'view game studios index page' do
   end
   
   it 'displays all game studios(user story 1)' do
-#     For game_studios table
-#     As a visitor
-#     When I visit '/game_studios'
-#     Then I see the name of each game studio record in the system
+    # For game_studios table
+    # As a visitor
+    # When I visit '/game_studios'
+    # Then I see the name of each game studio record in the system
     visit "/game_studios"
 
     expect(page).to have_content(@nintendo.studio_name)
