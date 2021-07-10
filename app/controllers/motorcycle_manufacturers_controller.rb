@@ -11,7 +11,7 @@ class MotorcycleManufacturersController < ApplicationController
   end
 
   def create
-    moto_mft = MotorcycleManufacturer.create(
+    MotorcycleManufacturer.create(
       name:                  params[:name],
       headquarters:          params[:headquarters],
       usa_made:              params[:headquarters],
