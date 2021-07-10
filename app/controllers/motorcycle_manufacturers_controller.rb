@@ -1,6 +1,6 @@
 class MotorcycleManufacturersController < ApplicationController
   def index
-    @motorcycle_manufacturers = MotorcycleManufacturer.all
+    @motorcycle_manufacturers = MotorcycleManufacturer.order("created_at")
   end
 
   def show
