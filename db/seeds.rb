@@ -3,6 +3,8 @@
 
 Motorcycle.destroy_all
 MotorcycleManufacturer.destroy_all
+Game.destroy_all
+GameStudio.destroy_all
 
 zero = MotorcycleManufacturer.create!(
   name:                  'Zero',
@@ -33,8 +35,49 @@ harley_davidson.motorcycles.create!(
   price: 18_799.0,
   electric: false
 )
+
 harley_davidson.motorcycles.create!(
   model: 'Livewire',
   price: 29_799.0,
   electric: true
+)
+
+nintendo = GameStudio.create!(
+  studio_name: 'Nintendo',
+  employee_count: 6_547,
+  hiring: true
+)
+
+sony = GameStudio.create!(
+  studio_name: 'Sony',
+  employee_count: 5_000,
+  hiring: false
+)
+
+nintendo.games.create!(
+  game_name: 'Super Mario World',
+  game_cost: 57.99,
+  genre: 'platformer',
+  multiplatform: false,
+)
+
+nintendo.games.create!(
+  game_name: 'Legend of Zelda',
+  game_cost: 59.99,
+  genre: 'action-adventure',
+  multiplatform: false,
+)
+
+sony.games.create!(
+  game_name: 'Spyro the Dragon',
+  game_cost: 49.99,
+  genre: 'platformer',
+  multiplatform: false,
+)
+
+sony.games.create!(
+  game_name: 'Crash Bandicoot',
+  game_cost: 59.99,
+  genre: 'action-platformer',
+  multiplatform: true,
 )
