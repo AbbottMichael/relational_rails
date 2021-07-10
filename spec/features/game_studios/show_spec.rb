@@ -29,4 +29,13 @@ RSpec.describe 'view game studios show page' do
 
     expect(page).to have_content("Games: #{@nintendo.games.count}")
   end
+
+  it "has a link to game studio's games (user story 10)" do
+    # As a visitor
+    # When I visit a game_studio show page ('/game_studios/:id')
+    # Then I see a link to take me to that game_studio's `games` page ('/game_studios/:id/games')
+    visit "/game_studios/#{@nintendo.id}"
+
+    expect(page).to have_link('Games list', href: "/game_studios/#{@nintendo.id}/games")
+  end
 end
