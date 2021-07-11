@@ -7,7 +7,7 @@ RSpec.describe 'the game studio edit' do
       employee_count: 10_454,
       hiring: true
     )
-    
+
     visit "/game_studios/#{game_studio.id}"
 
     click_button "Update #{game_studio.studio_name}"
@@ -29,11 +29,12 @@ RSpec.describe 'the game studio edit' do
     click_button "Update Koname"
 
     fill_in('Studio Name', with: 'Konami')
-    fill_in('Employee count', with: 10_454)
-    choose('True')
+    fill_in('Employee count', with: 5_000)
+    choose('False')
     click_button('Update Game Studio')
 
     expect(current_path).to eq("/game_studios/#{game_studio.id}")
     expect(page).to have_content('Konami')
+    expect(page).to have_content('false')
   end
 end
