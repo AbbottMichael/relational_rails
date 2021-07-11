@@ -1,0 +1,17 @@
+<h1>Edit: <%= @motorcycle.model %></h1>
+
+<%= form_with url: "/motorcycles/#{@motorcycle.id}", method: "patch", local: true do |form| %>
+  <%= form.label :model %>
+  <%= form.text_field :model, :value => @motorcycle.model %>
+
+  <%= form.label :price  %>
+  <%= form.text_field :price, :value => @motorcycle.price %>
+
+  <%= form.label :electric, 'Electric?' %>
+  <%= form.radio_button :electric, true %>
+  <%= form.label :electric_true, 'True' %>
+  <%= form.radio_button :electric, false %>
+  <%= form.label :electric_false, 'False' %>
+
+  <%= form.submit "Update Motorcycle" %>
+<% end %>

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get '/motorcycle_manufacturers/:id/motorcycles/new', to: 'motorcycle_manufacturer_motorcycles#new'
   post '/motorcycle_manufacturers/:id/motorcycles',    to: 'motorcycle_manufacturer_motorcycles#create'
 
-  get '/motorcycles',     to: 'motorcycles#index'
-  get '/motorcycles/:id', to: 'motorcycles#show'
+  get '/motorcycles',          to: 'motorcycles#index'
+  get '/motorcycles/:id',      to: 'motorcycles#show'
+  get '/motorcycles/:id/edit', to: 'motorcycles#edit'
+  patch '/motorcycles/:id',    to: 'motorcycles#update'
+
 end
