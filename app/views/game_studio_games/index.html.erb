@@ -8,3 +8,5 @@
   <p>Created at: <%= game.created_at %></p>
   <p>Updated at: <%= game.updated_at %></p>
 <% end %>
+
+<%= link_to 'Create Game', "/game_studios/#{ @game_studio.id }/games/new" %>
