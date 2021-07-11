@@ -13,19 +13,14 @@ RSpec.describe 'view motorcycles page' do
     #  When I visit '/motorcycles'
     #  Then I see each motorcycle in the system including the motorcycle's attributes:
     visit '/motorcycles'
-    save_and_open_page
 
     expect(page).to have_content(@srs.model)
     expect(page).to have_content("Price: #{@srs.price}")
     expect(page).to have_content("Electric?: #{@srs.electric}")
-    expect(page).to have_content("Created at: #{@srs.created_at}")
-    expect(page).to have_content("Updated at: #{@srs.updated_at}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@srs.motorcycle_manufacturer_id}")
     expect(page).to have_content(@fat_bob.model)
     expect(page).to have_content("Price: #{@fat_bob.price}")
     expect(page).to have_content("Electric?: #{@fat_bob.electric}")
-    expect(page).to have_content("Created at: #{@fat_bob.created_at}")
-    expect(page).to have_content("Updated at: #{@fat_bob.updated_at}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@fat_bob.motorcycle_manufacturer_id}")
   end
 end

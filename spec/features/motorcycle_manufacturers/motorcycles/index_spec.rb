@@ -13,15 +13,11 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     #  When I visit '/motorcycle_manufacturers/:motorcycle_manufacturer_id/motorcycles'
     #  Then I see each motorcycle that is associated with that manufacturer with each motorcycle's attributes:
     visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
-    save_and_open_page
 
     expect(page).to have_content(@zero.name)
     expect(page).to have_content(@srs.model)
     expect(page).to have_content("Price: #{@srs.price}")
     expect(page).to have_content("Electric?: #{@srs.electric}")
-    expect(page).to have_content("Created at: #{@srs.created_at}")
-    expect(page).to have_content("Updated at: #{@srs.updated_at}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@srs.motorcycle_manufacturer_id}")
-
   end
 end
