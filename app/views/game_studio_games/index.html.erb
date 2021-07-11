@@ -1,7 +1,7 @@
 <h1><%= @game_studio.studio_name %> Games</h1>
 
 <% @games.each do |game| %>
-	<h3>Game: <%= game.game_name %></h3>
+	<h3><a href= "/games/<%= game.id %>"><%= game.game_name %></a></h3>
   <p>Game cost: <%= game.game_cost %></p>
   <p>Game genre: <%= game.genre %></p>
   <p>Multiplatform?: <%= game.multiplatform %></p>

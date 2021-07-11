@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get '/game_studios/:id/games/new', to: 'game_studio_games#new'
   post '/game_studios/:id/games',    to: 'game_studio_games#create'
 
-  get '/games', to: 'games#index'
-  get '/games/:id', to: 'games#show'
+  get '/games',          to: 'games#index'
+  get '/games/:id',      to: 'games#show'
+  get '/games/:id/edit', to: 'games#edit'
+  patch '/games/:id',    to: 'games#update'
 
   get '/motorcycle_manufacturers',                     to: 'motorcycle_manufacturers#index'
   get '/motorcycle_manufacturers/new',                 to: 'motorcycle_manufacturers#new'
