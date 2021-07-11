@@ -11,3 +11,5 @@
 <p>Games: <%= @game_studio.games.count %></p>
 
 <p><a href= '/game_studios/<%= @game_studio.id %>/games'>Games list</a></p>
+
+<p><%= button_to "Update #{@game_studio.studio_name}", "/game_studios/#{@game_studio.id}/edit", method: :get %></p>

@@ -1,7 +1,7 @@
 <h1>Game Studios</h1>
 
 <% @game_studios.each do |game_studio| %>
-	<p><%= game_studio.studio_name %></p>
+	<p><a href= '/game_studios/<%= game_studio.id %>'><%= game_studio.studio_name %></a></p>
 <% end %>
 
 <%= link_to 'New Game Studio', '/game_studios/new' %>
