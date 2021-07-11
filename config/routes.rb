@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/game_studios/:id/edit', to: 'game_studios#edit'
   patch '/game_studios/:id',    to: 'game_studios#update'
 
-  get '/game_studios/:id/games', to: 'game_studio_games#index'
+  get '/game_studios/:id/games',     to: 'game_studio_games#index'
+  get '/game_studios/:id/games/new', to: 'game_studio_games#new'
+  post '/game_studios/:id/games',    to: 'game_studio_games#create'
 
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
