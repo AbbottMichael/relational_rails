@@ -1,6 +1,6 @@
-<h1>Create a new motorcycle manufacturer</h1>
+<h1>Edit: <%= @moto_mft.name %></h1>
 
-<%= form_with url: '/motorcycle_manufacturers', method: :post, local: true do |form| %>
+<%= form_with url: "/motorcycle_manufacturers/#{@moto_mft.id}", method: :patch, local: true do |form| %>
   <%= form.label :name  %>
   <%= form.text_field :name  %>
 
@@ -16,5 +16,5 @@
   <%= form.label :total_models_all_time  %>
   <%= form.text_field :total_models_all_time  %>
 
-  <%= form.submit "Create Motorcycle Manufacturer" %>
+  <%= form.submit "Update Motorcycle Manufacturer" %>
 <% end %>

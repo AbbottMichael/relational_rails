@@ -17,13 +17,9 @@ RSpec.describe 'view motorcycle by ID page' do
 
     visit "/motorcycles/#{@srs.id}"
 
-    save_and_open_page
-
     expect(page).to have_content(@srs.model)
     expect(page).to have_content("Price: #{@srs.price}")
     expect(page).to have_content("Electric?: #{@srs.electric}")
-    expect(page).to have_content("Created at: #{@srs.created_at}")
-    expect(page).to have_content("Updated at: #{@srs.updated_at}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@srs.motorcycle_manufacturer_id}")
   end
 end

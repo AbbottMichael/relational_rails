@@ -17,8 +17,6 @@ RSpec.describe 'view motorcycle manufacturer by ID page' do
     expect(page).to have_content(@zero.name)
     expect(page).to have_content("Headquarters: #{@zero.headquarters}")
     expect(page).to have_content("USA made?: #{@zero.usa_made}")
-    expect(page).to have_content("Created at: #{@zero.created_at}")
-    expect(page).to have_content("Updated at: #{@zero.updated_at}")
   end
 
   it "displays the motorcycle manufacturer's motorcycle count (user story 7)" do
@@ -35,7 +33,7 @@ RSpec.describe 'view motorcycle manufacturer by ID page' do
     # When I visit a motorcycle_manufacturer show page ('/motorcycle_manufacturers/:id')
     # Then I see a link to take me to that motorcycle_manufacturer's `motorcycles` page ('/motorcycle_manufacturers/:id/motorcycles')
     visit "/motorcycle_manufacturers/#{@zero.id}"
-    save_and_open_page
+
     expect(page).to have_link('Motorcycles list', href: "/motorcycle_manufacturers/#{@zero.id}/motorcycles")
   end
 end

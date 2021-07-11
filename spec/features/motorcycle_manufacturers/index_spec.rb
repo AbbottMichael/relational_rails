@@ -28,7 +28,7 @@ RSpec.describe 'view motorcycle manufacturers page' do
     #  When I visit '/motorcycle_manufacturers'
     #  Then I see the name of each motorcycle manufacturer record in the system
     visit '/motorcycle_manufacturers'
-    save_and_open_page
+
     expect(page).to have_content(@zero.name)
     expect(page).to have_content(@harley_davidson.name)
     expect(page).to have_content(@triumph.name)
@@ -40,7 +40,7 @@ RSpec.describe 'view motorcycle manufacturers page' do
     #  I see that records are ordered by most recently created first
     #  And next to each of the records I see when it was created
     visit '/motorcycle_manufacturers'
-    save_and_open_page
+
     expect(page).to have_content(@zero.created_at)
     expect(page).to have_content(@harley_davidson.created_at)
     expect(page).to have_content(@triumph.created_at)
