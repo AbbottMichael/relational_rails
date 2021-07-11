@@ -1,0 +1,20 @@
+<h1>Edit: <%= @moto_mft.name %></h1>
+
+<%= form_with url: "/motorcycle_manufacturers/#{@moto_mft.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name  %>
+  <%= form.text_field :name  %>
+
+  <%= form.label :headquarters  %>
+  <%= form.text_field :headquarters  %>
+
+  <%= form.label :usa_made, 'USA made?'  %>
+  <%= form.radio_button :usa_made, true  %>
+  <%= form.label :usa_made_true, 'True' %>
+  <%= form.radio_button :usa_made, false  %>
+  <%= form.label :usa_made_false, 'False' %>
+
+  <%= form.label :total_models_all_time  %>
+  <%= form.text_field :total_models_all_time  %>
+
+  <%= form.submit "Update Motorcycle Manufacturer" %>
+<% end %>

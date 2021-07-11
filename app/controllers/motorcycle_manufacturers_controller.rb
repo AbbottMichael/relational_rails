@@ -15,6 +15,16 @@ class MotorcycleManufacturersController < ApplicationController
     redirect_to "/motorcycle_manufacturers"
   end
 
+  def edit
+    @moto_mft = MotorcycleManufacturer.find(params[:id])
+  end
+
+  def update
+    moto_mft = MotorcycleManufacturer.find(params[:id])
+    moto_mft.update(motorcycle_manufacturer_params)
+    redirect_to "/motorcycle_manufacturers/#{moto_mft.id}"
+  end
+
   def motorcycle_manufacturer_params
     params.permit(:name, :headquarters, :usa_made, :total_models_all_time)
   end
