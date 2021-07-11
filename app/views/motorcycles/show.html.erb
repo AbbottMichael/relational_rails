@@ -1,4 +1,7 @@
 <h1><%= @motorcycle.model %></h1>
+
 <p>Price: <%= @motorcycle.price %></p>
 <p>Electric?: <%= @motorcycle.electric %></p>
 <p>Motorcycle manufacturer id: <%= @motorcycle.motorcycle_manufacturer_id %></p>
+
+<p><%= button_to "Update Motorcycle", "/motorcycles/#{@motorcycle.id}/edit", method: :get %></p>
