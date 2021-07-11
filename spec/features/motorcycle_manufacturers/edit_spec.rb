@@ -38,7 +38,7 @@ RSpec.describe 'the motorcycle manufacturer edit' do
     expect(page).to have_content('Zero Diesel Motorcycles')
 
     click_button 'Edit Zero Diesel Motorcycles'
-
+save_and_open_page
     fill_in('Name', with: 'Zero')
     click_button 'Update Motorcycle Manufacturer'
 
