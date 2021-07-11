@@ -1,0 +1,19 @@
+<h1>Create a new motorcycle for <%= @moto_mft.name %></h1>
+
+<%= form_with url: "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles", method: :post, local: true do |form| %>
+  <%= form.label :model %>
+    <%= form.text_field :model %>
+
+  <%= form.label :price %>
+    <%= form.text_field :price %>
+
+  <%= form.label :electric, 'Electric?'  %>
+    <%= form.radio_button :electric, true  %>
+  <%= form.label :electric_true, 'True' %>
+    <%= form.radio_button :electric, false  %>
+  <%= form.label :electric_false, 'False' %>
+
+  <%= form.hidden_field :motorcycle_manufacturer_id, :value => @moto_mft.id %>
+
+  <%= form.submit "Create Motorcycle" %>
+<% end %>

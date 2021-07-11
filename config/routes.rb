@@ -12,14 +12,16 @@ Rails.application.routes.draw do
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
 
-  get '/motorcycle_manufacturers',                 to: 'motorcycle_manufacturers#index'
-  get '/motorcycle_manufacturers/new',             to: 'motorcycle_manufacturers#new'
-  get '/motorcycle_manufacturers/:id',             to: 'motorcycle_manufacturers#show'
-  get '/motorcycle_manufacturers/:id/edit',        to: 'motorcycle_manufacturers#edit'
-  post '/motorcycle_manufacturers',                to: 'motorcycle_manufacturers#create'
-  patch '/motorcycle_manufacturers/:id',           to: 'motorcycle_manufacturers#update'
+  get '/motorcycle_manufacturers',                     to: 'motorcycle_manufacturers#index'
+  get '/motorcycle_manufacturers/new',                 to: 'motorcycle_manufacturers#new'
+  get '/motorcycle_manufacturers/:id',                 to: 'motorcycle_manufacturers#show'
+  get '/motorcycle_manufacturers/:id/edit',            to: 'motorcycle_manufacturers#edit'
+  post '/motorcycle_manufacturers',                    to: 'motorcycle_manufacturers#create'
+  patch '/motorcycle_manufacturers/:id',               to: 'motorcycle_manufacturers#update'
 
-  get '/motorcycle_manufacturers/:id/motorcycles', to: 'motorcycle_manufacturer_motorcycles#index'
+  get '/motorcycle_manufacturers/:id/motorcycles',     to: 'motorcycle_manufacturer_motorcycles#index'
+  get '/motorcycle_manufacturers/:id/motorcycles/new', to: 'motorcycle_manufacturer_motorcycles#new'
+  post '/motorcycle_manufacturers/:id/motorcycles',    to: 'motorcycle_manufacturer_motorcycles#create'
 
   get '/motorcycles',     to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'

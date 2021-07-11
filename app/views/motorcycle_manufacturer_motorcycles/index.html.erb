@@ -1,5 +1,5 @@
 <h1><%= @motorcycle_manufacturer.name %> Motorcycles</h1>
-
+<%= link_to "Create Motorcycle", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}/motorcycles/new" %>
 <% @motorcycles.each do |motorcycle| %>
   <h3> <%= motorcycle.model %></h3>
   <p>Price: <%= motorcycle.price %></p>
