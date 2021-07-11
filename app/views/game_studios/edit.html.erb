@@ -1,12 +1,12 @@
 <%= form_with url: "/game_studios/#{@game_studio.id}", method: :patch, local: true do |form| %>
 	<%= form.label :studio_name, 'Studio Name:' %>
-	<%= form.text_field :studio_name %><br>
+	<%= form.text_field :studio_name, :value => @game_studio.studio_name %><br>
 
 	<%= form.label :employee_count, 'Employee count:' %>
-	<%= form.number_field :employee_count %><br>
+	<%= form.number_field :employee_count, :value => @game_studio.employee_count %><br>
 
 	<%= form.label :hiring, 'Hiring?:' %>
-	<%= form.radio_button :hiring, true %>
+	<%= form.radio_button :hiring, true, :checked => true %>
 	<%= form.label :hiring_true, 'True' %>
 	<%= form.radio_button :hiring, false %>
 	<%= form.label :hiring_false, 'False' %><br><br>
