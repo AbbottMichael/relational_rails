@@ -33,7 +33,7 @@ RSpec.describe 'the motorcycle manufacturers motorcycle creation' do
 
   it 'can create a new adoptable motorcycle for the manufacturer' do
     visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles/new"
-    save_and_open_page
+
     fill_in('Model', with: 'DSR')
     fill_in('Price', with: 10000)
     choose('True') # electric? radio button

@@ -1,7 +1,7 @@
 class MotorcyclesController < ApplicationController
 
   def index
-    @motorcycles = Motorcycle.all
+    @motorcycles = Motorcycle.where(electric: true)
   end
 
   def show
