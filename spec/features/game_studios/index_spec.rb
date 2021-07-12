@@ -6,7 +6,7 @@ RSpec.describe 'view game studios index page' do
     @sony = GameStudio.create!(studio_name: 'Sony', employee_count: 5_000, hiring: false)
     @sega = GameStudio.create!(studio_name: 'Sega', employee_count: 3_238, hiring: true)
   end
-  
+
   it 'displays all game studios(user story 1)' do
     # For game_studios table
     # As a visitor
@@ -28,5 +28,13 @@ RSpec.describe 'view game studios index page' do
 
     expect("Nintendo").to appear_before("Sega")
     expect("Sony").to_not appear_before("Nintendo")
+  end
+
+  it 'has an edit link for each game studio' do
+    visit '/game_studios'
+
+    click_link('Edit Nintendo')
+
+    expect(current_path).to eq("/game_studios/#{@nintendo.id}/edit")
   end
 end
