@@ -4,4 +4,5 @@
 
 <% @motorcycle_manufacturers.each do |moto_mft| %>
 	<p><%= moto_mft.name %>: <%= moto_mft.created_at %></p>
+	<p><%= link_to "Edit #{moto_mft.name}", "/motorcycle_manufacturers/#{moto_mft.id}/edit" %></p>
 <% end %>

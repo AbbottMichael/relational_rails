@@ -47,4 +47,17 @@ RSpec.describe 'view motorcycle manufacturers page' do
     expect("Zero").to appear_before("Harley Davidson")
     expect("Harley Davidson").to appear_before("Triumph")
   end
+
+  it 'has an edit link for each motorcycle manufacturer' do
+    # (User Story 17) As a visitor
+    # When I visit the parent index page
+    # Next to every parent, I see a link to edit that parent's info
+    # When I click the link
+    # I should be taken to that parents edit page where I can update its information just like in User Story 4
+    visit '/motorcycle_manufacturers'
+
+    click_link('Edit Zero')
+
+    expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/edit")
+  end
 end
