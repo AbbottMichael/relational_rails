@@ -58,6 +58,9 @@ RSpec.describe 'goes to game studio games index page' do
     expect(page).to have_content(@super_mario.multiplatform)
     expect(page).to have_content(@super_mario.created_at)
     expect(page).to have_content(@super_mario.updated_at)
+    expect(page).to have_content(@kirby.game_name)
+    expect(page).to have_content(@zelda.game_name)
+    expect(page).to have_content(@donkey_kong.game_name)
     expect(page).to_not have_content(@spyro.game_name)
   end
 
@@ -87,6 +90,11 @@ RSpec.describe 'goes to game studio games index page' do
 
   it 'has an edit link for each game' do
     visit "/game_studios/#{@nintendo.id}/games"
+
+    expect(page).to have_content('Edit Kirby')
+    expect(page).to have_content('Edit Super Mario World')
+    expect(page).to have_content('Edit Zelda')
+    expect(page).to have_content('Edit Donkey Kong')
 
     click_link('Edit Kirby')
 
