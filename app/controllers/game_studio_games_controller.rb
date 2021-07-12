@@ -1,7 +1,16 @@
 class GameStudioGamesController < ApplicationController
   def index
     @game_studio = GameStudio.find(params[:id])
-    @games = @game_studio.games
+    @studio_id = GameStudio.find(params[:id]).id
+    @games = Game.where(game_studio_id: @studio_id)
+
+    if params[:order] == 'alphabetical'
+      @games = Game.where(game_studio_id: @studio_id).order("lower(game_name) ASC")
+    elsif params[:order] == 'cost'
+      @games = Game.where(game_studio_id: @studio_id).order(:game_cost)
+    else
+      @games = Game.where(game_studio_id: @studio_id)
+    end
   end
 
   def new
