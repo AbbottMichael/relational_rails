@@ -16,7 +16,7 @@ RSpec.describe 'view games page' do
       game_name: 'Super Mario World',
       game_cost: 57.99,
       genre: 'platformer',
-      multiplatform: false,
+      multiplatform: true,
       game_studio_id: @nintendo.id
     )
     @spyro = Game.create!(
@@ -41,6 +41,6 @@ RSpec.describe 'view games page' do
     expect(page).to have_content(@super_mario.created_at)
     expect(page).to have_content(@super_mario.updated_at)
     expect(page).to have_content(@super_mario.game_studio_id)
-    expect(page).to have_content(@spyro.game_name)
+    expect(page).to_not have_content(@spyro.game_name)
   end
 end
