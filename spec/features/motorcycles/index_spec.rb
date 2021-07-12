@@ -18,9 +18,6 @@ RSpec.describe 'view motorcycles page' do
     expect(page).to have_content("Price: #{@srs.price}")
     expect(page).to have_content("Electric?: #{@srs.electric}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@srs.motorcycle_manufacturer_id}")
-    expect(page).to have_content(@fat_bob.model)
-    expect(page).to have_content("Price: #{@fat_bob.price}")
-    expect(page).to have_content("Electric?: #{@fat_bob.electric}")
-    expect(page).to have_content("Motorcycle manufacturer id: #{@fat_bob.motorcycle_manufacturer_id}")
+    expect(page).to_not have_content(@fat_bob.model)
   end
 end
