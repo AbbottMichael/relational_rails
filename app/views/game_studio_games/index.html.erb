@@ -2,7 +2,7 @@
 
 <p>Sort by: 
 <%= link_to 'Alphabetical', "/game_studios/#{ @game_studio.id }/games?order=alphabetical" %>,
-<%= link_to 'Cost', "/game_studios/#{ @game_studio.id }/games?order=cost" %>
+<%= link_to 'Cost', "/game_studios/#{ @game_studio.id }/games?order=cost" %> <!--refactor-->
 </p>
 
 <% @games.each do |game| %>
