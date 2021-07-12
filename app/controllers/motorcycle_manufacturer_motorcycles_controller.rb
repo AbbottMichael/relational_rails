@@ -1,7 +1,13 @@
 class MotorcycleManufacturerMotorcyclesController < ApplicationController
   def index
     @motorcycle_manufacturer = MotorcycleManufacturer.find(params[:id])
-    @motorcycles = @motorcycle_manufacturer.motorcycles
+    @moto_mft_id = MotorcycleManufacturer.find(params[:id]).id
+
+    if params[:order] == 'alphabetical'
+      @motorcycles = Motorcycle.where(motorcycle_manufacturer_id: @moto_mft_id).order(Arel.sql("lower(model)"))
+    else
+      @motorcycles = Motorcycle.where(motorcycle_manufacturer_id: @moto_mft_id)
+    end
   end
 
   def new
