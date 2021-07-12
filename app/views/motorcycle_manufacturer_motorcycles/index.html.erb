@@ -8,4 +8,5 @@
   <p>Price: <%= motorcycle.price %></p>
   <p>Electric?: <%= motorcycle.electric %></p>
   <p>Motorcycle manufacturer id: <%= motorcycle.motorcycle_manufacturer_id %></p>
+  <p><%= link_to "Edit #{motorcycle.model}", "/motorcycles/#{motorcycle.id}/edit" %></p>
 <% end %>

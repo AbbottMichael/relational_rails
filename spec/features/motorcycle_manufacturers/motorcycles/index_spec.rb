@@ -34,4 +34,19 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/motorcycles")
     expect("DSR").to appear_before("SR/S")
   end
+
+  it 'has a seperate link to edit each record' do
+    # (User Story 18) As a visitor
+    # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+    # Next to every child, I see a link to edit that child's info
+    # When I click the link
+    # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
+
+    expect(page).to have_content("Edit #{@dsr.model}")
+
+    click_link("Edit #{@srs.model}")
+
+    expect(current_path).to eq("/motorcycles/#{@srs.id}/edit")
+  end
 end
