@@ -20,4 +20,18 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     expect(page).to have_content("Electric?: #{@srs.electric}")
     expect(page).to have_content("Motorcycle manufacturer id: #{@srs.motorcycle_manufacturer_id}")
   end
+
+  it 'displays motorcycles in alphabetical order when link is selected' do
+    # (user story 16) As a visitor
+    # When I visit the Motorcycle Manufacturer's motorcycles Index Page
+    # Then I see a link to sort motorcycles in alphabetical order
+    # When I click on the link
+    # I'm taken back to the Motorcycle Manufacturer's motorcycles Index Page where I see all of the parent's motorcycles in alphabetical order
+    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
+
+    click_link('Sort A - Z')
+
+    expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/motorcycles")
+    expect("DSR").to appear_before("SR/S")
+  end
 end
