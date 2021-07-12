@@ -43,4 +43,12 @@ RSpec.describe 'view games page' do
     expect(page).to have_content(@super_mario.game_studio_id)
     expect(page).to_not have_content(@spyro.game_name)
   end
+
+  it 'has an edit link for each game' do
+    visit "/games"
+
+    click_link('Edit Super Mario World')
+
+    expect(current_path).to eq("/games/#{@super_mario.id}/edit")
+  end
 end
