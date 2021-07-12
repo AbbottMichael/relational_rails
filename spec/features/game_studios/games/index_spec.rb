@@ -84,4 +84,12 @@ RSpec.describe 'goes to game studio games index page' do
     expect('Zelda').to appear_before('Kirby')
     expect('Kirby').to_not appear_before('Donkey Kong')
   end
+
+  it 'has an edit link for each game' do
+    visit "/game_studios/#{@nintendo.id}/games"
+
+    click_link('Edit Kirby')
+
+    expect(current_path).to eq("/games/#{@kirby.id}/edit")
+  end
 end
