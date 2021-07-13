@@ -8,11 +8,9 @@ RSpec.describe MotorcycleManufacturer do
     it {should allow_value(true).for(:usa_made)}
     it {should allow_value(false).for(:usa_made)}
     it {should_not allow_value(nil).for(:usa_made)}
-
-    # need to test that :usa_made exists
   end
 
   describe 'relationships' do
-    it {should have_many :motorcycles}
+    it {should have_many(:motorcycles).dependent(:destroy)}
   end
 end
