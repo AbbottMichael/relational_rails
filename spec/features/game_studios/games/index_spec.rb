@@ -70,7 +70,7 @@ RSpec.describe 'goes to game studio games index page' do
     expect('Super Mario World').to appear_before('Kirby')
     expect('Donkey Kong').to_not appear_before('Zelda')
 
-    click_link('Alphabetical')
+    click_link('Name')
 
     expect('Donkey Kong').to appear_before('Kirby')
     expect('Zelda').to_not appear_before('Super Mario World')
