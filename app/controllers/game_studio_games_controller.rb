@@ -7,7 +7,7 @@ class GameStudioGamesController < ApplicationController
     elsif params[:order] == 'cost'
       @games = Game.sort_by_cost(@game_studio.id)
     else
-      @games = Game.where(game_studio_id: @game_studio.id)
+      @games = Game.filter_by_studio(@game_studio.id)
     end
   end
 
