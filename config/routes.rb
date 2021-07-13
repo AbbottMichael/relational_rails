@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get '/game_studios/:id/edit', to: 'game_studios#edit'
   # patch '/game_studios/:id',    to: 'game_studios#update'
   # delete '/game_studios/:id',   to: 'game_studios#destroy'
+  # ***below makes all seven of the above and has path helpers***
   resources :game_studios
 
   get '/game_studios/:id/games',     to: 'game_studio_games#index'
