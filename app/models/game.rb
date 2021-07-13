@@ -14,4 +14,8 @@ class Game < ApplicationRecord
   def self.sort_by_cost(id)
     where(game_studio_id: id).order(:game_cost)
   end
+
+  def self.filter_by_studio(id)
+    where(game_studio_id: id)
+  end
 end
