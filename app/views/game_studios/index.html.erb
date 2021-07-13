@@ -1,9 +1,9 @@
 <h1>Game Studios</h1>
 
 <% @game_studios.each do |game_studio| %>
-	<h3><%= link_to "#{game_studio.studio_name}", game_studio_path(game_studio.id) %></h3>
-	<p><%= link_to "Edit #{game_studio.studio_name}", edit_game_studio_path(game_studio.id) %></p>
-	<p><%= link_to "Delete #{game_studio.studio_name}", game_studio_path(game_studio.id), method: :delete %></p>
+	<h3><%= link_to "#{game_studio.studio_name}", "/game_studios/#{game_studio.id}" %></h3>
+	<p><%= link_to "Edit #{game_studio.studio_name}", "/game_studios/#{game_studio.id}/edit" %></p>
+	<p><%= link_to "Delete #{game_studio.studio_name}", "/game_studios/#{game_studio.id}", method: :delete %></p>
 <% end %>
 
-<%= link_to 'New Game Studio', new_game_studio_path %>
+<%= link_to 'New Game Studio', '/game_studios/new' %>
