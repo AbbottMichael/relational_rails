@@ -1,8 +1,8 @@
 <h1><%= @game_studio.studio_name %> Games</h1>
 
 <p>Sort by: 
-<%= link_to 'Alphabetical', "/game_studios/#{ @game_studio.id }/games?order=alphabetical" %>,
-<%= link_to 'Cost', "/game_studios/#{ @game_studio.id }/games?order=cost" %> <!--refactor-->
+<%= link_to 'Alphabetical', order: 'alphabetical' %>,
+<%= link_to 'Cost', order: 'cost' %>
 </p>
 
 <% @games.each do |game| %>
