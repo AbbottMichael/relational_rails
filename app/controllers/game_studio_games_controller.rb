@@ -2,7 +2,7 @@ class GameStudioGamesController < ApplicationController
   def index
     @game_studio = GameStudio.find(params[:id])
 
-    if params[:order] == 'alphabetical'
+    if params[:order] == 'name'
       @games = Game.sort_by_name(@game_studio.id)
     elsif params[:order] == 'cost'
       @games = Game.sort_by_cost(@game_studio.id)
