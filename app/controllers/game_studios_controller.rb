@@ -8,6 +8,7 @@ class GameStudiosController < ApplicationController
   end
 
   def new
+    @game_studio = GameStudio.new
   end
 
   def create
@@ -21,7 +22,7 @@ class GameStudiosController < ApplicationController
 
   def update
     game_studio = GameStudio.find(params[:id])
-    game_studio.update(game_studio_params_form)
+    game_studio.update(game_studio_params)
     redirect_to "/game_studios/#{game_studio.id}"
   end
 
@@ -32,11 +33,7 @@ class GameStudiosController < ApplicationController
 
   private
 
-  def game_studio_params_form
-    params.require(:game_studio).permit(:studio_name, :employee_count, :hiring)
-  end
-
   def game_studio_params
-    params.permit(:studio_name, :employee_count, :hiring)
+    params.require(:game_studio).permit(:studio_name, :employee_count, :hiring)
   end
 end
