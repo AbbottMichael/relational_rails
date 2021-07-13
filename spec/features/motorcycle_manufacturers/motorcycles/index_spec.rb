@@ -6,14 +6,14 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     @harley_davidson = MotorcycleManufacturer.create!(name: 'Harley Davidson', headquarters: 'Milwaukee, Wisconsin', usa_made: true, total_models_all_time: 1_615)
     @srs = Motorcycle.create!(model: 'SR/S', price: 19_995.0, electric: true, motorcycle_manufacturer_id: @zero.id)
     @dsr = Motorcycle.create!(model: 'DSR', price: 15_495.0, electric: true, motorcycle_manufacturer_id: @zero.id)
+
+    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
   end
 
   it "displays each motorcycle and it's attributes, associated with the motorcycle manufacturer's id(user story 5)" do
     #  As a visitor
     #  When I visit '/motorcycle_manufacturers/:motorcycle_manufacturer_id/motorcycles'
     #  Then I see each motorcycle that is associated with that manufacturer with each motorcycle's attributes:
-    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
-
     expect(page).to have_content(@zero.name)
     expect(page).to have_content(@srs.model)
     expect(page).to have_content("Price: #{@srs.price}")
@@ -27,8 +27,6 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     # Then I see a link to sort motorcycles in alphabetical order
     # When I click on the link
     # I'm taken back to the Motorcycle Manufacturer's motorcycles Index Page where I see all of the parent's motorcycles in alphabetical order
-    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
-
     click_link('Sort A - Z')
 
     expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/motorcycles")
@@ -41,8 +39,6 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
     # Next to every child, I see a link to edit that child's info
     # When I click the link
     # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
-    visit "/motorcycle_manufacturers/#{@zero.id}/motorcycles"
-
     expect(page).to have_content("Edit #{@dsr.model}")
 
     click_link("Edit #{@srs.model}")
