@@ -6,4 +6,8 @@ class Game < ApplicationRecord
                         :genre
 
   validates             :multiplatform, inclusion: [true, false]
+
+  def self.alphabetical(id)
+    where(game_studio_id: id).order(Arel.sql("lower(game_name)"))
+  end
 end
