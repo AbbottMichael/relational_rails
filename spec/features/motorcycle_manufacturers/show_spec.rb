@@ -36,4 +36,24 @@ RSpec.describe 'view motorcycle manufacturer by ID page' do
 
     expect(page).to have_link('Motorcycles list', href: "/motorcycle_manufacturers/#{@zero.id}/motorcycles")
   end
+
+  it 'can delete a motorcycle manufacturer' do
+    # (User Story 19) As a visitor
+    # When I visit a parent show page
+    # Then I see a link to delete the parent
+    # When I click the link "Delete Parent"
+    # Then a 'DELETE' request is sent to '/parents/:id',
+    # the parent is deleted, and all child records are deleted
+    # and I am redirected to the parent index page where I no longer see this parent
+    visit "/motorcycle_manufacturers/#{@zero.id}"
+
+    click_button("Delete #{@zero.name}")
+
+    expect(page).to_not have_content("#{@zero.name}")
+
+    visit "/motorcycles"
+
+    expect(page).to_not have_content("#{@srs.model}")
+
+  end
 end

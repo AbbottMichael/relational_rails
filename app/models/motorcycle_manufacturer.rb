@@ -1,5 +1,5 @@
 class MotorcycleManufacturer < ApplicationRecord
-  has_many :motorcycles
+  has_many :motorcycles, dependent: :destroy
 
   validates_presence_of :name,
                         :headquarters,

@@ -6,4 +6,5 @@
 <p>Motorcycles: <%= @motorcycle_manufacturer.motorcycles.count %></p>
 <p><a href= '/motorcycle_manufacturers/<%= @motorcycle_manufacturer.id %>/motorcycles'>Motorcycles list</a></p>
 
-<p><%= button_to "Edit #{@motorcycle_manufacturer.name}", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}/edit", method: :get %>
+<p><%= button_to "Edit #{@motorcycle_manufacturer.name}", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}/edit", method: :get %></p>
+<p><%= button_to "Delete #{@motorcycle_manufacturer.name}", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}", method: :delete %></p>
