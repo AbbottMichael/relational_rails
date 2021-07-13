@@ -18,6 +18,11 @@ class MotorcyclesController < ApplicationController
     redirect_to "/motorcycles/#{motorcycle.id}"
   end
 
+  def destroy
+    Motorcycle.destroy(params[:id])
+    redirect_to '/motorcycles'
+  end
+
   def motorcycle_params
     params.permit(:model, :price, :electric)
   end

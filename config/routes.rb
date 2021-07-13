@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   get '/motorcycles/:id',      to: 'motorcycles#show'
   get '/motorcycles/:id/edit', to: 'motorcycles#edit'
   patch '/motorcycles/:id',    to: 'motorcycles#update'
+  delete '/motorcycles/:id',   to: 'motorcycles#destroy'
 
 end

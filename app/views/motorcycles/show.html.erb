@@ -5,3 +5,4 @@
 <p>Motorcycle manufacturer id: <%= @motorcycle.motorcycle_manufacturer_id %></p>
 
 <p><%= button_to "Update Motorcycle", "/motorcycles/#{@motorcycle.id}/edit", method: :get %></p>
+<p><%= button_to "Delete #{@motorcycle.model}", "/motorcycles/#{@motorcycle.id}", method: :delete %></p>

@@ -11,7 +11,7 @@ class MotorcycleManufacturersController < ApplicationController
   end
 
   def create
-    MotorcycleManufacturer.create(motorcycle_manufacturer_params)
+    MotorcycleManufacturer.create(moto_mft_params)
     redirect_to "/motorcycle_manufacturers"
   end
 
@@ -21,7 +21,7 @@ class MotorcycleManufacturersController < ApplicationController
 
   def update
     moto_mft = MotorcycleManufacturer.find(params[:id])
-    moto_mft.update(motorcycle_manufacturer_params)
+    moto_mft.update(moto_mft_params)
     redirect_to "/motorcycle_manufacturers/#{moto_mft.id}"
   end
 
@@ -30,7 +30,11 @@ class MotorcycleManufacturersController < ApplicationController
     redirect_to "/motorcycle_manufacturers"
   end
 
-  def motorcycle_manufacturer_params
+  def moto_mft_params
     params.permit(:name, :headquarters, :usa_made, :total_models_all_time)
   end
+
+  # def moto_mft_params_form
+  #   params.require(:moto_mft).permit(:name, :headquarters, :usa_made, :total_models_all_time)
+  # end
 end
