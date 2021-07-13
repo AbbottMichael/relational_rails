@@ -25,6 +25,11 @@ class GameStudiosController < ApplicationController
     redirect_to "/game_studios/#{game_studio.id}"
   end
 
+  def destroy
+    GameStudio.find(params[:id]).destroy
+    redirect_to '/game_studios'
+  end
+
   private
 
   def game_studio_params
