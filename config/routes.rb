@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/games/:id',      to: 'games#show'
   get '/games/:id/edit', to: 'games#edit'
   patch '/games/:id',    to: 'games#update'
+  delete '/games/:id',   to: 'games#destroy'
 
   get '/motorcycle_manufacturers',          to: 'motorcycle_manufacturers#index'
   get '/motorcycle_manufacturers/new',      to: 'motorcycle_manufacturers#new'
