@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # ***below makes all seven of the above and has path helpers***
   # resources :game_studios
 
-  get '/game_studios/:id/games',     to: 'game_studio_games#index'
+  get '/game_studios/:id/games',     to: 'game_studio_games#index', as: 'game_studio_games'
   get '/game_studios/:id/games/new', to: 'game_studio_games#new'
   post '/game_studios/:id/games',    to: 'game_studio_games#create'
 
