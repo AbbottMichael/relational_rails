@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/game_studios/:id',      to: 'game_studios#show'
   get '/game_studios/:id/edit', to: 'game_studios#edit'
   patch '/game_studios/:id',    to: 'game_studios#update'
+  delete '/game_studios/:id',   to: 'game_studios#destroy'
 
   get '/game_studios/:id/games',     to: 'game_studio_games#index'
   get '/game_studios/:id/games/new', to: 'game_studio_games#new'
