@@ -1,9 +1,9 @@
 <h1><%= @game_studio.studio_name %> Games</h1>
 
-<%= form_tag(game_studio_games_path(@game_studio.id), method: :get) do%>
-  <%= label_tag(:search, 'Search for games that cost more than:') %>
-  <%= number_field_tag :search, params[:search] %>
-  <%= submit_tag("Search", name: nil) %>
+<%= form_with url: game_studio_games_path(@game_studio.id), method: :get, local: true do |form| %>
+  <%= form.label :search, "Search by cost:" %>
+  <%= form.number_field :search %>
+  <%= form.submit "Search for games greater than cost" %>
 <% end %>
 
 <p>Sort by: 
