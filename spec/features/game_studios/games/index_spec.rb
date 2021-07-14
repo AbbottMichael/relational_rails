@@ -105,7 +105,7 @@ RSpec.describe 'goes to game studio games index page' do
     visit "/game_studios/#{@nintendo.id}/games"
 
     fill_in('Search by cost:', with: 50)
-    click_button("Search for games greater than cost")
+    click_button("Search for games greater than cost entered")
 
     expect(page).to have_content('Kirby')
     expect(page).to_not have_content('Super Mario World')
