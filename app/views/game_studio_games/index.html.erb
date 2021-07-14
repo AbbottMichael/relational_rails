@@ -12,13 +12,13 @@
 </p>
 
 <% @games.each do |game| %>
-	<h3><a href= "/games/<%= game.id %>"><%= game.game_name %></a></h3>
+	<h3><%= link_to game.game_name, game_path(game.id) %></h3>
   <p>Game cost: <%= game.game_cost %></p>
   <p>Game genre: <%= game.genre %></p>
   <p>Multiplatform?: <%= game.multiplatform %></p>
   <p>Created at: <%= game.created_at %></p>
   <p>Updated at: <%= game.updated_at %></p>
-  <p><%= link_to "Edit #{game.game_name}", "/games/#{game.id}/edit" %></p>
+  <p><%= link_to "Edit #{game.game_name}", edit_game_path(game.id) %></p>
 <% end %>
 
-<%= link_to 'Create Game', "/game_studios/#{ @game_studio.id }/games/new" %>
+<%= link_to 'Create Game', new_game_studio_game_path(@game_studio.id) %>
