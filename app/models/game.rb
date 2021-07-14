@@ -7,12 +7,12 @@ class Game < ApplicationRecord
 
   validates             :multiplatform, inclusion: [true, false]
 
-  def self.sort_by_name
-    order(Arel.sql("lower(game_name)"))
-  end
-
-  def self.sort_by_cost
-    order(:game_cost)
+  def self.sort_by_type(sort_type)
+    if sort_type == 'name'
+      order(Arel.sql("lower(game_name)"))
+    elsif sort_type == 'cost'
+      order(:game_cost)
+    end
   end
 
   def self.search(search)
