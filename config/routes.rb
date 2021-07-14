@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   patch '/motorcycle_manufacturers/:id',    to: 'motorcycle_manufacturers#update'
   delete '/motorcycle_manufacturers/:id',   to: 'motorcycle_manufacturers#destroy'
 
-  get '/motorcycle_manufacturers/:id/motorcycles',     to: 'motorcycle_manufacturer_motorcycles#index'
-  get '/motorcycle_manufacturers/:id/motorcycles/new', to: 'motorcycle_manufacturer_motorcycles#new'
-  post '/motorcycle_manufacturers/:id/motorcycles',    to: 'motorcycle_manufacturer_motorcycles#create'
+  get '/motorcycle_manufacturers/:id/motorcycles',        to: 'motorcycle_manufacturer_motorcycles#index'
+  get '/motorcycle_manufacturers/:id/motorcycles/new',    to: 'motorcycle_manufacturer_motorcycles#new'
+  post '/motorcycle_manufacturers/:id/motorcycles',       to: 'motorcycle_manufacturer_motorcycles#create'
 
   get '/motorcycles',          to: 'motorcycles#index'
   get '/motorcycles/:id',      to: 'motorcycles#show'

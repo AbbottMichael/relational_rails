@@ -1,12 +1,13 @@
 class MotorcycleManufacturerMotorcyclesController < ApplicationController
   def index
-    @motorcycle_manufacturer = MotorcycleManufacturer.find(params[:id])
-    @moto_mft_id = MotorcycleManufacturer.find(params[:id]).id
+    @moto_mft = MotorcycleManufacturer.find(params[:id])
 
     if params[:order] == 'alphabetical'
-      @motorcycles = Motorcycle.where(motorcycle_manufacturer_id: @moto_mft_id).order(Arel.sql("lower(model)"))
+      @motorcycles = @moto_mft.motorcycles.alphabetical
+    elsif params[:query]
+      @motorcycles = @moto_mft.motorcycles.search(params[:query])
     else
-      @motorcycles = Motorcycle.where(motorcycle_manufacturer_id: @moto_mft_id)
+      @motorcycles = @moto_mft.motorcycles.all
     end
   end
 
@@ -19,6 +20,7 @@ class MotorcycleManufacturerMotorcyclesController < ApplicationController
     Motorcycle.create(motorcycle_params)
     redirect_to "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles"
   end
+
 
   def motorcycle_params
     params.permit(:model, :price, :electric, :motorcycle_manufacturer_id)
