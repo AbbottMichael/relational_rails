@@ -100,4 +100,17 @@ RSpec.describe 'goes to game studio games index page' do
 
     expect(current_path).to eq("/games/#{@kirby.id}/edit")
   end
+
+  it 'has a search bar' do
+    visit "/game_studios/#{@nintendo.id}/games"
+
+    fill_in('Search by cost:', with: 50)
+    click_button("Search for games greater than cost")
+
+    expect(page).to have_content('Kirby')
+    expect(page).to_not have_content('Super Mario World')
+    expect(page).to have_content('Zelda')
+    expect(page).to_not have_content('Donkey Kong')
+    expect(current_path).to eq("/game_studios/#{@nintendo.id}/games")
+  end
 end
