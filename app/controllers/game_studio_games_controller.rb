@@ -3,11 +3,13 @@ class GameStudioGamesController < ApplicationController
     @game_studio = GameStudio.find(params[:id])
 
     if params[:order] == 'name'
-      @games = Game.sort_by_name(@game_studio.id)
+      @games = @game_studio.games.sort_by_name
     elsif params[:order] == 'cost'
-      @games = Game.sort_by_cost(@game_studio.id)
+      @games = @game_studio.games.sort_by_cost
+    elsif params[:search]
+      @games = @game_studio.games.search(params[:search])
     else
-      @games = Game.filter_by_studio(@game_studio.id)
+      @games = @game_studio.games.all
     end
   end
 
