@@ -51,4 +51,19 @@ RSpec.describe 'view games page' do
 
     expect(current_path).to eq("/games/#{@super_mario.id}/edit")
   end
+
+  it 'has a button to delete the game(user story 23)' do
+    visit "/games"
+
+    expect(page).to have_link('Delete Super Mario World')
+  end
+
+  it 'can delete the game and return to game index(user story 23)' do
+    visit "/games"
+
+    click_link('Delete Super Mario World')
+
+    expect(current_path).to eq('/games')
+    expect(page).to_not have_content('Super Mario World')
+  end
 end

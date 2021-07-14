@@ -1,8 +1,14 @@
 <h1><%= @game_studio.studio_name %> Games</h1>
 
+<%= form_with url: game_studio_games_path(@game_studio.id), method: :get, local: true do |form| %>
+  <%= form.label :search, "Search by cost:" %>
+  <%= form.number_field :search, required: true %>
+  <%= form.submit "Search for games greater than cost entered" %>
+<% end %>
+
 <p>Sort by: 
-<%= link_to 'Alphabetical', "/game_studios/#{ @game_studio.id }/games?order=alphabetical" %>,
-<%= link_to 'Cost', "/game_studios/#{ @game_studio.id }/games?order=cost" %> <!--refactor-->
+<%= link_to 'Name', order: 'name' %>,
+<%= link_to 'Cost', order: 'cost' %>
 </p>
 
 <% @games.each do |game| %>

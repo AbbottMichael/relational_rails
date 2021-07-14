@@ -1,12 +1,12 @@
 <%= form_with url: "/game_studios/#{@game_studio.id}/games", method: :post, local: true do |form| %>
   <%= form.label :game_name, 'Game Name:' %>
-	<%= form.text_field :game_name %><br>
+	<%= form.text_field :game_name, required: true %><br>
 
 	<%= form.label :game_cost, 'Game cost:' %>
-	<%= form.number_field :game_cost %><br>
+	<%= form.number_field :game_cost, required: true %><br>
 
 	<%= form.label :genre, 'Genre:' %>
-	<%= form.text_field :genre %><br>
+	<%= form.text_field :genre, required: true %><br>
 
 	<%= form.label :multiplatform, 'Multiplatform?:' %>
 	<%= form.radio_button :multiplatform, true, :checked => true %>

@@ -1,9 +1,9 @@
-<%= form_with url: '/game_studios', method: :post, local: true do |form| %>
+<%= form_with model: @game_studio, method: :post, local: true do |form| %>
 	<%= form.label :studio_name, 'Studio Name:' %>
-	<%= form.text_field :studio_name %><br>
+	<%= form.text_field :studio_name, required: true %><br>
 
 	<%= form.label :employee_count, 'Employee count:' %>
-	<%= form.number_field :employee_count %><br>
+	<%= form.number_field :employee_count, required: true %><br>
 
 	<%= form.label :hiring, 'Hiring?:' %>
 	<%= form.radio_button :hiring, true %>

@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   post '/game_studios',         to: 'game_studios#create'
   get '/game_studios/:id',      to: 'game_studios#show'
   get '/game_studios/:id/edit', to: 'game_studios#edit'
-  patch '/game_studios/:id',    to: 'game_studios#update'
+  patch '/game_studios/:id',    to: 'game_studios#update', as: 'game_studio'
   delete '/game_studios/:id',   to: 'game_studios#destroy'
+  # ***below makes all seven of the above and has path helpers***
+  # resources :game_studios
 
-  get '/game_studios/:id/games',     to: 'game_studio_games#index'
+  get '/game_studios/:id/games',     to: 'game_studio_games#index', as: 'game_studio_games'
   get '/game_studios/:id/games/new', to: 'game_studio_games#new'
   post '/game_studios/:id/games',    to: 'game_studio_games#create'
 
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   get '/games/:id',      to: 'games#show'
   get '/games/:id/edit', to: 'games#edit'
   patch '/games/:id',    to: 'games#update'
+  delete '/games/:id',   to: 'games#destroy'
 
   get '/motorcycle_manufacturers',          to: 'motorcycle_manufacturers#index'
   get '/motorcycle_manufacturers/new',      to: 'motorcycle_manufacturers#new'

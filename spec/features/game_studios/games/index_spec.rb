@@ -70,7 +70,7 @@ RSpec.describe 'goes to game studio games index page' do
     expect('Super Mario World').to appear_before('Kirby')
     expect('Donkey Kong').to_not appear_before('Zelda')
 
-    click_link('Alphabetical')
+    click_link('Name')
 
     expect('Donkey Kong').to appear_before('Kirby')
     expect('Zelda').to_not appear_before('Super Mario World')
@@ -99,5 +99,18 @@ RSpec.describe 'goes to game studio games index page' do
     click_link('Edit Kirby')
 
     expect(current_path).to eq("/games/#{@kirby.id}/edit")
+  end
+
+  it 'has a search bar' do
+    visit "/game_studios/#{@nintendo.id}/games"
+
+    fill_in('Search by cost:', with: 50)
+    click_button("Search for games greater than cost entered")
+
+    expect(page).to have_content('Kirby')
+    expect(page).to_not have_content('Super Mario World')
+    expect(page).to have_content('Zelda')
+    expect(page).to_not have_content('Donkey Kong')
+    expect(current_path).to eq("/game_studios/#{@nintendo.id}/games")
   end
 end

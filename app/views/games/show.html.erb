@@ -13,3 +13,5 @@
 <p>Game studio id: <%= @game.game_studio_id %></p>
 
 <p><%= button_to "Update #{@game.game_name}", "/games/#{@game.id}/edit", method: :get %></p>
+
+<p><%= button_to "Delete #{@game.game_name}", "/games/#{@game.id}", method: :delete %></p>

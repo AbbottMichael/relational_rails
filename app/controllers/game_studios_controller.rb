@@ -8,10 +8,11 @@ class GameStudiosController < ApplicationController
   end
 
   def new
+    @game_studio = GameStudio.new
   end
 
   def create
-    GameStudio.create(game_studio_params)
+    GameStudio.create!(game_studio_params)
     redirect_to '/game_studios'
   end
 
@@ -33,6 +34,6 @@ class GameStudiosController < ApplicationController
   private
 
   def game_studio_params
-    params.permit(:studio_name, :employee_count, :hiring)
+    params.require(:game_studio).permit(:studio_name, :employee_count, :hiring)
   end
 end
