@@ -1,7 +1,13 @@
-<h1><%= @motorcycle_manufacturer.name %> Motorcycles</h1>
+<h1><%= @moto_mft.name %> Motorcycles</h1>
 
-<%= link_to "Create Motorcycle", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}/motorcycles/new" %>
-<%= link_to "Sort A - Z", "/motorcycle_manufacturers/#{@motorcycle_manufacturer.id}/motorcycles?order=alphabetical" %>
+<p><%= link_to "Create Motorcycle", "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles/new" %></p>
+<p><%= link_to "Sort A - Z", "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles?order=alphabetical" %></p>
+
+<%= form_with url: "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles", method: :get, local: true do |form| %>
+  <%= form.label :query, "Search for price:" %>
+  <%= form.text_field :query, required: true %>
+  <%= form.submit "Search" %>
+<% end %>
 
 <% @motorcycles.each do |motorcycle| %>
   <h3> <%= motorcycle.model %></h3>
