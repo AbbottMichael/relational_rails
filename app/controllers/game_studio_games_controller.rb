@@ -4,7 +4,7 @@ class GameStudioGamesController < ApplicationController
 
     if params[:order]
       @games = @game_studio.games.sort_by_type(params[:order])
-    elsif params[:search] && (params[:search].to_i) > 0
+    elsif params[:search] && (params[:search].to_i).positive?
       @games = @game_studio.games.search(params[:search])
     else
       @games = @game_studio.games.all
