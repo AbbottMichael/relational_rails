@@ -45,4 +45,21 @@ RSpec.describe "Motorcycle manufacturer's motorcycles index" do
 
     expect(current_path).to eq("/motorcycles/#{@srs.id}/edit")
   end
+
+  it 'accepts a price search and returns records with a number greater than the inputed value' do
+    # (user story 21) As a visitor
+    # When I visit the Parent's children Index Page
+    # I see a form that allows me to input a number value
+    # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+    # Then I am brought back to the current index page with only the records that meet that threshold shown.
+    expect(page).to have_content(@srs.model)
+    expect(page).to have_content(@dsr.model)
+
+    fill_in('Search for price:', with: 16000)
+    click_on("Search")
+
+    expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/motorcycles")
+    expect(page).to have_content(@srs.model)
+    expect(page).to_not have_content(@dsr.model)
+  end
 end
