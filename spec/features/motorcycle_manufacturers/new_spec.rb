@@ -25,7 +25,7 @@ RSpec.describe 'Motorcycle Manufacturer creation' do
     fill_in('Name', with: 'Triumph')
     fill_in('Headquarters', with: 'England')
     choose('True') # usa_made? radio button
-    fill_in('total_models_all_time', with: '872')
+    fill_in('Total models all time', with: 872)
 
     click_button('Create Motorcycle Manufacturer')
 

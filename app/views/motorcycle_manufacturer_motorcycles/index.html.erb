@@ -5,7 +5,7 @@
 
 <%= form_with url: "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles", method: :get, local: true do |form| %>
   <%= form.label :query, "Search for price:" %>
-  <%= form.text_field :query, required: true %>
+  <%= form.number_field :query, required: true %>
   <%= form.submit "Search" %>
 <% end %>
 

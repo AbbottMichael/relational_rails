@@ -34,7 +34,8 @@ RSpec.describe 'view motorcycle manufacturer by ID page' do
     # Then I see a link to take me to that motorcycle_manufacturer's `motorcycles` page ('/motorcycle_manufacturers/:id/motorcycles')
     visit "/motorcycle_manufacturers/#{@zero.id}"
 
-    expect(page).to have_link('Motorcycles list', href: "/motorcycle_manufacturers/#{@zero.id}/motorcycles")
+    click_link('Motorcycle List')
+    expect(current_path).to eq("/motorcycle_manufacturers/#{@zero.id}/motorcycles")
   end
 
   it 'can delete a motorcycle manufacturer' do

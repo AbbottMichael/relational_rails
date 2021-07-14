@@ -8,6 +8,7 @@ class MotorcycleManufacturersController < ApplicationController
   end
 
   def new
+    @moto_mft = MotorcycleManufacturer.new
   end
 
   def create
@@ -30,8 +31,10 @@ class MotorcycleManufacturersController < ApplicationController
     redirect_to "/motorcycle_manufacturers"
   end
 
+  private
+
   def moto_mft_params
-    params.permit(:name, :headquarters, :usa_made, :total_models_all_time)
+    params.require(:motorcycle_manufacturer).permit(:name, :headquarters, :usa_made, :total_models_all_time)
   end
 
   # def moto_mft_params_form

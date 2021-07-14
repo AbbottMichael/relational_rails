@@ -4,7 +4,7 @@ class MotorcycleManufacturerMotorcyclesController < ApplicationController
 
     if params[:order] == 'alphabetical'
       @motorcycles = @moto_mft.motorcycles.alphabetical
-    elsif params[:query]
+    elsif params[:query] && params[:query].to_i > 0
       @motorcycles = @moto_mft.motorcycles.search(params[:query])
     else
       @motorcycles = @moto_mft.motorcycles.all
@@ -21,6 +21,7 @@ class MotorcycleManufacturerMotorcyclesController < ApplicationController
     redirect_to "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles"
   end
 
+  private
 
   def motorcycle_params
     params.permit(:model, :price, :electric, :motorcycle_manufacturer_id)
