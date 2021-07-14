@@ -3,20 +3,20 @@ Rails.application.routes.draw do
   get '/game_studios',          to: 'game_studios#index'
   get '/game_studios/new',      to: 'game_studios#new'
   post '/game_studios',         to: 'game_studios#create'
-  get '/game_studios/:id',      to: 'game_studios#show'
+  get '/game_studios/:id',      to: 'game_studios#show', as: 'game_studio'
   get '/game_studios/:id/edit', to: 'game_studios#edit'
-  patch '/game_studios/:id',    to: 'game_studios#update', as: 'game_studio'
+  patch '/game_studios/:id',    to: 'game_studios#update', as: 'patch_game_studio'
   delete '/game_studios/:id',   to: 'game_studios#destroy'
   # ***below makes all seven of the above and has path helpers***
   # resources :game_studios
 
   get '/game_studios/:id/games',     to: 'game_studio_games#index', as: 'game_studio_games'
-  get '/game_studios/:id/games/new', to: 'game_studio_games#new'
+  get '/game_studios/:id/games/new', to: 'game_studio_games#new', as: 'new_game_studio_game'
   post '/game_studios/:id/games',    to: 'game_studio_games#create'
 
   get '/games',          to: 'games#index'
-  get '/games/:id',      to: 'games#show'
-  get '/games/:id/edit', to: 'games#edit'
+  get '/games/:id',      to: 'games#show', as: 'game'
+  get '/games/:id/edit', to: 'games#edit', as: 'edit_game'
   patch '/games/:id',    to: 'games#update'
   delete '/games/:id',   to: 'games#destroy'
 

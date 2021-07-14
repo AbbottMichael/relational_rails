@@ -1,5 +1,5 @@
-<%= form_with url: "/game_studios/#{@game_studio.id}/games", method: :post, local: true do |form| %>
-  <%= form.label :game_name, 'Game Name:' %>
+<%= form_with url: game_studio_games_path(@game_studio.id), method: :post, local: true do |form| %>
+	<%= form.label :game_name, 'Game Name:' %>
 	<%= form.text_field :game_name, required: true %><br>
 
 	<%= form.label :game_cost, 'Game cost:' %>
