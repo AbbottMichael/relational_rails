@@ -5,4 +5,12 @@ class Motorcycle < ApplicationRecord
                         :price
 
   validates             :electric, inclusion: [true, false]
+
+  def self.alphabetical
+    order(Arel.sql("lower(model)"))
+  end
+
+  def self.search(query)
+    where("price > #{query}")
+  end
 end
