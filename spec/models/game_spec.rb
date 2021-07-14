@@ -67,17 +67,28 @@ RSpec.describe Game do
         game_studio_id: @sony.id
       )
     end
+    describe '::sort_by_type(sort_type)' do
+      it 'can sort games by name' do
+        expect(Game.sort_by_type('name')).to eq([@donkey_kong, @kirby, @spyro, @super_mario, @zelda])
+      end
+      it 'can sort games by studio by name' do
+        expect(@nintendo.games.sort_by_type('name')).to eq([@donkey_kong, @kirby, @super_mario, @zelda])
+      end
 
-    it 'can sort games by name' do
-      expect(@nintendo.games.sort_by_name).to eq([@donkey_kong, @kirby, @super_mario, @zelda])
+      it 'can sort games by cost' do
+        expect(Game.sort_by_type('cost')).to eq([@super_mario, @donkey_kong, @spyro, @zelda, @kirby])
+      end
+      it 'can sort games by studio by cost' do
+        expect(@nintendo.games.sort_by_type('cost')).to eq([@super_mario, @donkey_kong, @zelda, @kirby])
+      end
     end
-
-    it 'can sort games by cost' do
-      expect(@nintendo.games.sort_by_cost).to eq([@super_mario, @donkey_kong, @zelda, @kirby])
-    end
-
-    it 'can filter games by cost' do
-      expect(@nintendo.games.search(50)).to eq([@kirby, @zelda])
+    describe '::search(search)' do
+      it 'can filter games by cost' do
+        expect(Game.search(48)).to eq([@kirby, @zelda, @donkey_kong, @spyro])
+      end
+      it 'can filter games by studio and by cost' do
+        expect(@nintendo.games.search(50)).to eq([@kirby, @zelda])
+      end
     end
   end
 end
