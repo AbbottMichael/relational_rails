@@ -21,6 +21,7 @@ class MotorcycleManufacturerMotorcyclesController < ApplicationController
     redirect_to "/motorcycle_manufacturers/#{@moto_mft.id}/motorcycles"
   end
 
+  private
 
   def motorcycle_params
     params.permit(:model, :price, :electric, :motorcycle_manufacturer_id)

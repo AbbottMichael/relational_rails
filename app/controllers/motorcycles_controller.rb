@@ -23,6 +23,8 @@ class MotorcyclesController < ApplicationController
     redirect_to '/motorcycles'
   end
 
+  private
+
   def motorcycle_params
     params.permit(:model, :price, :electric)
   end
